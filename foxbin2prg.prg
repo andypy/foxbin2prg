@@ -1332,18 +1332,7 @@ Define Class c_foxbin2prg As Session
 
 * Get default language info
 * ISO 639-2 Language Codes: https://www.loc.gov/standards/iso639-2/php/code_list.php
-		lcLang	= This.getLocaleInfo(0x00000067) && ie: spa
-
-		Do Case
-			Case lcLang = 'spa'
-				lcLang = 'ES'
-			Case Inlist(lcLang, 'den', 'deu', 'ger', 'gmh', 'goh', 'gsw', 'nds')
-				lcLang = 'DE'
-			Case Inlist(lcLang, 'cpf', 'fra', 'fre', 'frm', 'fro')
-				lcLang = 'FR'
-			Otherwise && Default: EN
-				lcLang = 'EN'
-		Endcase
+		lcLang	= 'EN'	&& Default: EN, no locale auto-detection. Use "Language:" in foxbin2prg.cfg to change it
 
 		This.changeLanguage(lcLang)
 
@@ -4302,7 +4291,7 @@ Define Class c_foxbin2prg As Session
 							laOptions(11,1) = "*RemoveZOrderSetFromProps:"          && 0,1 1=.t. 0=Do not remove ZOrderSet property from object, 1=Remove ZOrderSet property from object
 							laOptions(11,2) = ".l_RemoveZOrderSetFromProps"
 							laOptions(11,3) = 1
-							laOptions(12,1) = "*Language:"                          && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+							laOptions(12,1) = "*Language:"                          && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 							laOptions(12,2) = ".c_Language_In"
 							laOptions(12,3) = 0
 							laOptions(13,1) = "*ExcludeDBFAutoincNextval:"          && 0,1 [0=Do not exclude this value from db2], 1=Exclude this value from db2
@@ -31689,7 +31678,7 @@ Define Class CL_LANG As Custom
 						.n_LanguageSelectedMethod	= 1	&& 1=Assigned by Parameter
 					Endif
 
-					tcLanguage	= Upper( Evl(tcLanguage, Version(3)) )
+					tcLanguage	= Upper( Evl(tcLanguage, 'EN') )
 
 					Do Case
 						Case Inlist(tcLanguage, '33', 'FR') && French (Francés)
@@ -31810,7 +31799,7 @@ Define Class CL_LANG As Custom
 						<<>>****************************************************************************************************************
 						<<>>
 						<<>>-- Settings for internal work, not processing
-						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 						<<>>ShowProgressbar: 1             && 0=Don't show, 1=Allways show, 2=Show only for multi-file processing
 						<<>>                               && Note: This setting will be ignored, if cDontShowProgress parameter is set. 
 						<<>>DontShowErrors: 0              && Show message errors by default
@@ -32172,7 +32161,7 @@ Define Class CL_LANG As Custom
 						<<>>****************************************************************************************************************
 						<<>>
 						<<>>-- Settings for internal work, not processing
-						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 						<<>>ShowProgressbar: 1             && 0=Don't show, 1=Allways show, 2=Show only for multi-file processing
 						<<>>                               && Note: This setting will be ignored, if cDontShowProgress parameter is set. 
 						<<>>DontShowErrors: 0              && Show message errors by default
@@ -32534,7 +32523,7 @@ Define Class CL_LANG As Custom
 						<<>>****************************************************************************************************************
 						<<>>
 						<<>>Interne Einstellungen
-						<<>>Language: (auto)               && Sprache für Anzeigen und Logs. EN=English, FR=Français, ES=Español, DE=Deutsch, Nicht definiert = Automatisch [DEFAULT]
+						<<>>Language: (auto)               && Sprache für Anzeigen und Logs. EN=English, FR=Français, ES=Español, DE=Deutsch, Nicht definiert = EN [DEFAULT]
 						<<>>ShowProgressbar: 1             && 0=Zeige Fortschrittsfenster, 1=Zeige es nicht, 2=Zeige Fortschrittsfenster nur, wenn mehrere Dateien konvertiert werden.
 						<<>>                               && Achtung: Wird der Parameter cDontShowProgress genutzt, wird diese einstellung ignoriert. 
 						<<>>DontShowErrors: 0              && 0=Zeige Fehler an, 1=Zeige keine Fehler an
@@ -32921,7 +32910,7 @@ Define Class CL_LANG As Custom
 						<<>>****************************************************************************************************************
 						<<>>
 						<<>>-- Settings for internal work, not processing
-						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+						<<>>Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 						<<>>ShowProgressbar: 1             && 0=Don't show, 1=Allways show, 2=Show only for multi-file processing
 						<<>>                               && Note: This setting will be ignored, if cDontShowProgress parameter is set. 
 						<<>>DontShowErrors: 0              && Show message errors by default

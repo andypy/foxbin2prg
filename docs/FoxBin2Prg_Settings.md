@@ -37,7 +37,7 @@ in the settings object returned by get_DirSettings method of the API object. See
 
 | FoxBin2Prg.cfg keywords<br/>Property of settings object | Value (_Default_) | Description |
 | ----- | ----- | ----- |
-| Language | _(auto)_,<br/>EN, FR, ES, DE | Language of templates, shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC (using VERSION(3)) ||
+| Language | _(auto)_,<br/>EN, FR, ES, DE | Language of templates, shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN ||
 | DontShowProgress<br/>n_ShowProgressbar | 0 | **Deprecated**. Replaced by ShowProgressbar option from v1.19.40, see below.<br/>The values of 0 and 1 are inverted to ShowProgressbar. |
 | ShowProgressbar<br/>n_ShowProgressbar | 0, _1_, 2 | 0=Don't show progressbar,<br/>1=Always show a progress bar,<br/>2=Only show it when processing multiple-files.<br/>**If set via parameter _cDontShowProgress_, this is ignored.<br/>_cDontShowProgress_ has value "0","1" inverted to the property.** |
 | DontShowErrors<br/>n/a | _0_, 1 | 0=show message errors in a modal messagebox. (default)<br/>1=don't show errors<br/>**If set via parameter _cDontShowErrors_, this is ignored.**<br/>**There is no inheritance for this setting. First occurance wins.** |
@@ -183,7 +183,7 @@ DO FOXBIN2PRG.PRG WITH "-c","template.cfg"    &&==> Generates a template for Fox
 *****************************************************************************************************************
 
 *-- Settings for internal work, not processing
-*Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+*Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 *ShowProgressbar: 1             && 0=Don't show, 1=Allways show, 2=Show only for multi-file processing
 *                               && Note: This setting will be ignored, if cDontShowProgress parameter is set. 
 *DontShowErrors: 0              && Show message errors by default

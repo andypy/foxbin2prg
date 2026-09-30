@@ -16,7 +16,7 @@
 *****************************************************************************************************************
 
 *-- Settings for internal work, not processing
-*Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = AUTOMATIC [DEFAULT]
+*Language: (auto)               && Language of shown messages and LOGs. EN=English, FR=French, ES=Español, DE=German, Not defined = EN [DEFAULT]
 *ShowProgressbar: 1             && 0=Don't show, 1=Allways show, 2=Show only for multi-file processing
 *                               && Note: This setting will be ignored, if cDontShowProgress parameter is set. 
 *DontShowErrors: 0              && Show message errors by default
