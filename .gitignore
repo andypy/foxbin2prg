@@ -90,3 +90,6 @@ bin2txt.*
 !/BuildProcess/*.md
 !/BuildProcess/*.gitignore
 !/ThorUpdater/*.*
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

@@ -951,7 +951,7 @@ Release loEx, loCnv
 Declare Integer OpenProcess In Win32API Integer dwDesiredAccess, Integer bInheritHandle, Integer dwProcessID
 lnHandle = OpenProcess(1, 1, _vfp.ProcessID)
 Declare Integer TerminateProcess In Win32API Integer hProcess, Integer uExitCode
-=TerminateProcess(lnHandle,1)
+=TerminateProcess(lnHandle, Int(lnResp))	&& propagate the real error code as ERRORLEVEL/exit code instead of a flat 1
 
 *KillMode 3
 *lcComputer = [.]
@@ -19726,14 +19726,14 @@ Define Class c_conversor_dbf_a_prg As c_conversor_bin_a_prg
 *-- Include
 						If Not Empty(toFoxBin2Prg.c_DBF_Conversion_Included) And Not toFoxBin2Prg.c_DBF_Conversion_Included == '*' ;
 								AND Not toFoxBin2Prg.filenameFoundInFilter( Justfname(.c_InputFile), toFoxBin2Prg.c_DBF_Conversion_Included )
-							toFoxBin2Prg.writeLog('  ' + Justfname(.c_InputFile) + ' no está en el filtro DBF_Conversion_Included (' + toFoxBin2Prg.c_DBF_Conversion_Included + ')' )
+							toFoxBin2Prg.writeLog('  ' + Justfname(.c_InputFile) + ' is not in filter DBF_Conversion_Included (' + toFoxBin2Prg.c_DBF_Conversion_Included + ')' )
 							Exit
 						Endif
 
 *-- Exclude
 						If Not Empty(toFoxBin2Prg.c_DBF_Conversion_Excluded) ;
 								AND toFoxBin2Prg.filenameFoundInFilter( Justfname(.c_InputFile), toFoxBin2Prg.c_DBF_Conversion_Excluded )
-							toFoxBin2Prg.writeLog('  ' + Justfname(.c_InputFile) + ' está en el filtro DBF_Conversion_Excluded (' + toFoxBin2Prg.c_DBF_Conversion_Excluded + ')' )
+							toFoxBin2Prg.writeLog('  ' + Justfname(.c_InputFile) + ' is in filter DBF_Conversion_Excluded (' + toFoxBin2Prg.c_DBF_Conversion_Excluded + ')' )
 							Exit
 						Endif
 
